@@ -72,38 +72,20 @@ export const aboutStats: Stat[] = [
 export type Project = {
   title: string
   description: string
-  videoSrc: string
+  videoSrc?: string
+  iframeSrc?: string
+  href?: string
   tags: string[]
 }
 
 export const projects: Project[] = [
   {
-    title: 'Nexus Platform',
+    title: 'Scuola Italiana Baku',
     description:
-      'B2B SaaS dashboard with real-time analytics and AI-powered insights for enterprise teams.',
-    videoSrc: '/videos/project-1.mp4',
-    tags: ['Next.js', 'TypeScript', 'Postgres'],
-  },
-  {
-    title: 'Orbit Mobile',
-    description:
-      'Cross-platform mobile application with offline-first architecture and seamless sync.',
-    videoSrc: '/videos/project-2.mp4',
-    tags: ['React Native', 'Expo', 'GraphQL'],
-  },
-  {
-    title: 'Helio Brand',
-    description:
-      'Full brand identity system for a fintech startup — logo, type, color, and motion.',
-    videoSrc: '/videos/project-3.mp4',
-    tags: ['Branding', 'Motion', 'Figma'],
-  },
-  {
-    title: 'Strata Commerce',
-    description:
-      'High-performance e-commerce platform processing 50k+ daily transactions.',
-    videoSrc: '/videos/project-4.mp4',
-    tags: ['Commerce', 'Node.js', 'Redis'],
+      'Multilingual platform for Baku\'s Italian language school — AZ/EN/IT, dark mode, static export, full-text search, and CEFR A1–C2 course structure.',
+    iframeSrc: 'https://litad.az',
+    href: 'https://litad.az',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },
 ]
 

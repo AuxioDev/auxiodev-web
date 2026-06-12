@@ -12,13 +12,15 @@ export function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Selected work</h2>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/[0.08] mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
             <AnimateIn key={project.title} delay={index * 0.08}>
               <VideoCard
                 title={project.title}
                 description={project.description}
                 videoSrc={project.videoSrc}
+                iframeSrc={project.iframeSrc}
+                href={project.href}
                 tags={project.tags}
               />
             </AnimateIn>
