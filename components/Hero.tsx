@@ -36,9 +36,23 @@ function SplitWords({ text, dim }: { text: string; dim?: boolean }) {
   )
 }
 
+function AsteriskStar({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden className={className}>
+      <line x1="20" y1="2" x2="20" y2="38" stroke="currentColor" strokeWidth="1" />
+      <line x1="2" y1="20" x2="38" y2="20" stroke="currentColor" strokeWidth="1" />
+      <line x1="5.86" y1="5.86" x2="34.14" y2="34.14" stroke="currentColor" strokeWidth="1" />
+      <line x1="34.14" y1="5.86" x2="5.86" y2="34.14" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  )
+}
+
 export function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center py-20 md:py-28 px-6 md:px-16 lg:px-24">
+    <section className="min-h-screen flex flex-col justify-center py-20 md:py-28 px-6 md:px-16 lg:px-24 relative overflow-hidden">
+      <AsteriskStar className="absolute top-10 right-10 md:right-20 w-10 h-10 text-accent/25 pointer-events-none" />
+      <AsteriskStar className="absolute bottom-32 left-5 w-6 h-6 text-brand/30 pointer-events-none" />
+
       <div className="max-w-7xl mx-auto w-full">
         <AnimateIn delay={0} className="mb-6">
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted">
@@ -71,20 +85,20 @@ export function Hero() {
         <AnimateIn delay={0.6} className="flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="bg-bright text-bg font-semibold px-6 py-3 rounded-sm hover:bg-white transition-colors text-sm"
+            className="bg-accent text-white font-semibold px-6 py-3 rounded-sm hover:bg-brand transition-colors text-sm"
           >
             View our work
           </a>
           <a
             href="#contact"
-            className="border border-white/15 text-dim px-6 py-3 rounded-sm hover:border-white/40 hover:text-white transition-colors text-sm flex items-center gap-2"
+            className="border border-accent/20 text-dim px-6 py-3 rounded-sm hover:border-accent/50 hover:text-white transition-colors text-sm flex items-center gap-2"
           >
             Get in touch <ArrowRight size={14} />
           </a>
         </AnimateIn>
       </div>
 
-      <div className="border-t border-white/[0.08] mt-20" />
+      <div className="border-t border-accent/10 mt-20" />
     </section>
   )
 }

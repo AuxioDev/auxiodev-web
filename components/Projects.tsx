@@ -5,7 +5,7 @@ import { VideoCard } from '@/components/ui/VideoCard'
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-white/[0.08]">
+    <section id="projects" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-accent/10">
       <div className="max-w-7xl mx-auto">
         <AnimateIn className="mb-12">
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted mb-3">Portfolio</p>
@@ -30,7 +30,7 @@ export function Projects() {
         <AnimateIn>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border border-white/15 text-dim px-6 py-3 rounded-sm hover:border-white/40 hover:text-white transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-accent/20 text-dim px-6 py-3 rounded-sm hover:border-accent/50 hover:text-accent transition-colors text-sm"
           >
             View all projects <ArrowRight size={14} />
           </a>

@@ -10,7 +10,7 @@ const socialIcons = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.08] py-16 px-6 md:px-16 lg:px-24">
+    <footer className="border-t border-accent/10 py-16 px-6 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
@@ -46,7 +46,7 @@ export function Footer() {
                     key={link.label}
                     href={link.href}
                     aria-label={link.label}
-                    className="w-8 h-8 flex items-center justify-center rounded-sm bg-white/[0.04] border border-white/[0.08] text-dim hover:text-white hover:bg-white/[0.08] transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-sm bg-accent/[0.05] border border-accent/10 text-dim hover:text-accent hover:bg-accent/[0.10] hover:border-accent/25 transition-colors"
                   >
                     <Icon size={13} />
                   </a>
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/[0.08] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div className="border-t border-accent/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <p className="text-xs text-white/25">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>

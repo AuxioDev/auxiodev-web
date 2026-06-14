@@ -51,10 +51,10 @@ export function Contact() {
   }
 
   const inputClass =
-    'bg-white/[0.04] border border-white/10 focus:border-white/25 text-white placeholder:text-white/20 rounded-sm px-4 py-3 text-sm outline-none w-full transition-colors'
+    'bg-accent/[0.04] border border-accent/15 focus:border-accent/50 text-white placeholder:text-white/20 rounded-sm px-4 py-3 text-sm outline-none w-full transition-colors'
 
   return (
-    <section id="contact" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-white/[0.08]">
+    <section id="contact" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-accent/10">
       <div className="max-w-7xl mx-auto">
         <AnimateIn className="mb-12">
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted mb-3">Get in touch</p>
@@ -69,8 +69,8 @@ export function Contact() {
               const Icon = iconMap[item.type]
               return (
                 <div key={item.type} className="flex items-start gap-4">
-                  <div className="w-8 h-8 flex items-center justify-center rounded-sm bg-white/[0.04] border border-white/[0.08] flex-shrink-0 mt-0.5">
-                    <Icon size={14} className="text-dim" />
+                  <div className="w-8 h-8 flex items-center justify-center rounded-sm bg-accent/[0.06] border border-accent/10 flex-shrink-0 mt-0.5">
+                    <Icon size={14} className="text-accent/60" />
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted mb-1">
@@ -94,8 +94,8 @@ export function Contact() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="flex flex-col items-start gap-3 py-8"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                    <Check size={18} className="text-bright" />
+                  <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center">
+                    <Check size={18} className="text-accent" />
                   </div>
                   <p className="text-bright font-semibold">Message sent</p>
                   <p className="text-dim text-sm">
@@ -160,7 +160,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={sending}
-                    className="w-full bg-bright text-bg font-semibold px-6 py-3 rounded-sm hover:bg-white transition-colors text-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-accent text-white font-semibold px-6 py-3 rounded-sm hover:bg-brand transition-colors text-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {sending ? 'Sending…' : 'Send message'}
                   </button>

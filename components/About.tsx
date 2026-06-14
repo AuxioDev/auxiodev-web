@@ -35,7 +35,7 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 
 export function About() {
   return (
-    <section id="about" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-white/[0.08]">
+    <section id="about" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-accent/10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <AnimateIn>
@@ -65,15 +65,15 @@ export function About() {
                 text: 'Deep discovery, rapid iteration, honest feedback. We ship fast and refine continuously, treating every release as a hypothesis.',
               },
             ].map((item) => (
-              <div key={item.label} className="border-l-2 border-white/10 pl-4">
-                <p className="text-xs font-semibold tracking-tight text-white mb-1">{item.label}</p>
+              <div key={item.label} className="border-l-2 border-accent/30 pl-4">
+                <p className="text-xs font-semibold tracking-tight text-accent mb-1">{item.label}</p>
                 <p className="text-xs text-white/40 leading-relaxed">{item.text}</p>
               </div>
             ))}
           </AnimateIn>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/[0.08] pt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-accent/10 pt-12">
           {aboutStats.map((stat, i) => (
             <AnimateIn key={stat.label} delay={i * 0.08}>
               <CountUp target={stat.value} suffix={stat.suffix} />

@@ -47,7 +47,7 @@ export function Navbar() {
   }, [mobileOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-bg/80 border-b border-white/[0.08]">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-bg/80 border-b border-accent/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between h-14">
         <a href="#" className="text-bright font-bold text-sm tracking-tight">
           {brand.name}
@@ -61,7 +61,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-sm transition-colors ${
-                  activeSection === id ? 'text-white' : 'text-dim hover:text-white'
+                  activeSection === id ? 'text-accent' : 'text-dim hover:text-white'
                 }`}
               >
                 {link.label}
@@ -88,7 +88,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="md:hidden bg-bg/95 backdrop-blur-sm border-b border-white/[0.08] px-6 pb-6 pt-4 flex flex-col gap-5"
+            className="md:hidden bg-bg/95 backdrop-blur-sm border-b border-accent/10 px-6 pb-6 pt-4 flex flex-col gap-5"
           >
             {navLinks.map((link) => {
               const id = link.href.replace('#', '')
