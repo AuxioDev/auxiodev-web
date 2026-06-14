@@ -6,9 +6,7 @@ import { AnimateIn } from '@/components/ui/AnimateIn'
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.04 },
-  },
+  visible: { transition: { staggerChildren: 0.04 } },
 }
 
 const wordVariants = {
@@ -50,8 +48,21 @@ function AsteriskStar({ className }: { className?: string }) {
 export function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center py-20 md:py-28 px-6 md:px-16 lg:px-24 relative overflow-hidden">
-      <AsteriskStar className="absolute top-10 right-10 md:right-20 w-10 h-10 text-accent/25 pointer-events-none" />
-      <AsteriskStar className="absolute bottom-32 left-5 w-6 h-6 text-brand/30 pointer-events-none" />
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        className="absolute top-10 right-10 md:right-20 pointer-events-none"
+      >
+        <AsteriskStar className="w-10 h-10 text-accent/25" />
+      </motion.div>
+
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
+        className="absolute bottom-32 left-5 pointer-events-none"
+      >
+        <AsteriskStar className="w-6 h-6 text-brand/30" />
+      </motion.div>
 
       <div className="max-w-7xl mx-auto w-full">
         <AnimateIn delay={0} className="mb-6">
@@ -83,18 +94,29 @@ export function Hero() {
         </AnimateIn>
 
         <AnimateIn delay={0.6} className="flex flex-wrap gap-4">
-          <a
+          <motion.a
             href="#projects"
-            className="bg-accent text-white font-semibold px-6 py-3 rounded-sm hover:bg-brand transition-colors text-sm"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-accent text-white font-semibold px-6 py-3 rounded-sm hover:bg-brand transition-colors text-sm inline-block"
           >
             View our work
-          </a>
-          <a
+          </motion.a>
+
+          <motion.a
             href="#contact"
             className="border border-accent/20 text-dim px-6 py-3 rounded-sm hover:border-accent/50 hover:text-white transition-colors text-sm flex items-center gap-2"
+            initial="rest"
+            whileHover="hover"
           >
-            Get in touch <ArrowRight size={14} />
-          </a>
+            Get in touch
+            <motion.span
+              variants={{ rest: { x: 0 }, hover: { x: 3 } }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              <ArrowRight size={14} />
+            </motion.span>
+          </motion.a>
         </AnimateIn>
       </div>
 

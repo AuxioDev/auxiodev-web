@@ -34,9 +34,12 @@ export function Projects() {
         <AnimateIn>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border border-accent/20 text-dim px-6 py-3 rounded-sm hover:border-accent/50 hover:text-accent transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-accent/20 text-dim px-6 py-3 rounded-sm hover:border-accent/50 hover:text-accent transition-colors text-sm group"
           >
-            View all projects <ArrowRight size={14} />
+            View all projects
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              <ArrowRight size={14} />
+            </span>
           </a>
         </AnimateIn>
       </div>

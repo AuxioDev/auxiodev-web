@@ -14,14 +14,14 @@ export function Services() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-accent/10">
           {services.map((service, index) => (
             <AnimateIn key={service.number} delay={index * 0.07}>
-              <div className="border-b border-r border-accent/10 p-7 hover:bg-accent/[0.04] transition-colors group h-full">
+              <div className="border-b border-r border-accent/10 p-7 hover:bg-accent/[0.04] hover:-translate-y-0.5 transition-all duration-200 group h-full">
                 <div className="flex items-start justify-between mb-4">
                   <span className="text-xs font-mono text-accent/40 tracking-widest">
                     {service.number}
                   </span>
                   <ArrowUpRight
                     size={14}
-                    className="text-accent opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="text-accent opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                   />
                 </div>
                 <h3 className="text-base md:text-lg font-semibold tracking-tight text-bright mb-2">
