@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { brand, navLinks } from '@/lib/content'
 
 export function Navbar() {
@@ -49,8 +50,9 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-bg/80 border-b border-accent/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between h-14">
-        <a href="#" className="text-bright font-bold text-sm tracking-tight">
-          {brand.name}
+        <a href="#" className="flex items-center gap-2">
+          <Image src="/logo.png" alt="AuxioDev logo" width={28} height={28} className="rounded-sm" />
+          <span className="text-bright font-bold text-sm tracking-tight">{brand.name}</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
