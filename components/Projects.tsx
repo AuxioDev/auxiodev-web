@@ -14,7 +14,11 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
-            <AnimateIn key={project.title} delay={index * 0.08}>
+            <AnimateIn
+              key={project.title}
+              delay={index * 0.08}
+              className={projects.length % 2 !== 0 && index === projects.length - 1 ? 'md:col-span-2' : undefined}
+            >
               <VideoCard
                 title={project.title}
                 description={project.description}

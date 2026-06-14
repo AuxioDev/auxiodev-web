@@ -51,7 +51,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-bg/80 border-b border-accent/10">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between h-14">
         <a href="#" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="AuxioDev logo" width={28} height={28} className="rounded-sm" />
+          <Image src="/logo.png" alt="AuxioDev logo" width={28} height={28} sizes="28px" className="rounded-sm" />
           <span className="text-bright font-bold text-sm tracking-tight">{brand.name}</span>
         </a>
 
@@ -71,6 +71,13 @@ export function Navbar() {
             )
           })}
         </nav>
+
+        <a
+          href="#contact"
+          className="hidden md:inline-flex items-center text-xs font-semibold px-4 py-2 rounded-sm border border-accent/30 text-accent hover:bg-accent/10 hover:border-accent/60 transition-colors"
+        >
+          Get in touch
+        </a>
 
         <button
           className="md:hidden text-dim hover:text-white transition-colors"

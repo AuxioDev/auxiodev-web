@@ -27,7 +27,7 @@ export function Services() {
                 <h3 className="text-base md:text-lg font-semibold tracking-tight text-bright mb-2">
                   {service.title}
                 </h3>
-                <p className="text-xs text-white/40 leading-relaxed">{service.description}</p>
+                <p className="text-sm text-white/40 leading-relaxed">{service.description}</p>
               </div>
             </AnimateIn>
           ))}

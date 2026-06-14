@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { brand } from '@/lib/content'
 import { AnimateIn } from '@/components/ui/AnimateIn'
 
@@ -64,7 +64,7 @@ export function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-5xl md:text-7xl font-bold tracking-tightest leading-[1.05] mb-8 max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tightest leading-[1.05] mb-8 max-w-4xl"
         >
           <span className="block">
             <SplitWords text="We craft digital" />
@@ -97,6 +97,21 @@ export function Hero() {
           </a>
         </AnimateIn>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-accent/35 pointer-events-none"
+      >
+        <span className="text-[9px] uppercase tracking-[0.25em]">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={14} />
+        </motion.div>
+      </motion.div>
 
       <div className="border-t border-accent/10 mt-20" />
     </section>

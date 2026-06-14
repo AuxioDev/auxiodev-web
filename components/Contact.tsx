@@ -13,6 +13,13 @@ const iconMap = {
 
 type FormErrors = { name?: string; email?: string; message?: string }
 
+function ContactValue({ type, value }: { type: string; value: string }) {
+  const cls = 'text-sm text-bright hover:text-accent transition-colors'
+  if (type === 'email') return <a href={`mailto:${value}`} className={cls}>{value}</a>
+  if (type === 'phone') return <a href={`tel:${value.replace(/\s/g, '')}`} className={cls}>{value}</a>
+  return <p className="text-sm text-bright">{value}</p>
+}
+
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
@@ -50,8 +57,16 @@ export function Contact() {
     }
   }
 
+  const handleReset = () => {
+    setSubmitted(false)
+    setForm({ name: '', email: '', message: '' })
+    setErrors({})
+  }
+
   const inputClass =
     'bg-accent/[0.04] border border-accent/15 focus:border-accent/50 text-white placeholder:text-white/20 rounded-sm px-4 py-3 text-sm outline-none w-full transition-colors'
+
+  const labelClass = 'block text-[10px] uppercase tracking-[0.15em] text-muted mb-1.5'
 
   return (
     <section id="contact" className="py-20 md:py-28 px-6 md:px-16 lg:px-24 border-t border-accent/10">
@@ -76,7 +91,7 @@ export function Contact() {
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted mb-1">
                       {item.label}
                     </p>
-                    <p className="text-sm text-bright">{item.value}</p>
+                    <ContactValue type={item.type} value={item.value} />
                   </div>
                 </div>
               )
@@ -101,6 +116,12 @@ export function Contact() {
                   <p className="text-dim text-sm">
                     Thanks for reaching out — we&apos;ll get back to you within 24 hours.
                   </p>
+                  <button
+                    onClick={handleReset}
+                    className="text-xs text-accent/60 hover:text-accent transition-colors mt-1"
+                  >
+                    Send another message →
+                  </button>
                 </motion.div>
               ) : (
                 <motion.form
@@ -113,50 +134,49 @@ export function Contact() {
                   noValidate
                 >
                   <div>
+                    <label htmlFor="contact-name" className={labelClass}>Your name</label>
                     <input
+                      id="contact-name"
                       type="text"
-                      placeholder="Your name"
+                      placeholder="e.g. John Smith"
+                      autoComplete="name"
                       value={form.name}
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                       className={inputClass}
-                      aria-label="Your name"
                     />
-                    {errors.name && (
-                      <p className="text-xs text-red-400 mt-1">{errors.name}</p>
-                    )}
+                    {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
+                    <label htmlFor="contact-email" className={labelClass}>Email address</label>
                     <input
+                      id="contact-email"
                       type="email"
-                      placeholder="Email address"
+                      placeholder="you@company.com"
+                      autoComplete="email"
                       value={form.email}
                       onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                       className={inputClass}
-                      aria-label="Email address"
                     />
-                    {errors.email && (
-                      <p className="text-xs text-red-400 mt-1">{errors.email}</p>
-                    )}
+                    {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
+                    <label htmlFor="contact-message" className={labelClass}>Your message</label>
                     <textarea
+                      id="contact-message"
                       placeholder="Tell us about your project…"
+                      autoComplete="off"
                       value={form.message}
                       onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                       rows={5}
                       className={`${inputClass} resize-none`}
-                      aria-label="Project message"
                     />
-                    {errors.message && (
-                      <p className="text-xs text-red-400 mt-1">{errors.message}</p>
-                    )}
+                    {errors.message && <p className="text-xs text-red-400 mt-1">{errors.message}</p>}
                   </div>
 
-                  {serverError && (
-                    <p className="text-xs text-red-400">{serverError}</p>
-                  )}
+                  {serverError && <p className="text-xs text-red-400">{serverError}</p>}
+
                   <button
                     type="submit"
                     disabled={sending}

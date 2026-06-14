@@ -20,7 +20,6 @@ body {
   background-image:
     radial-gradient(ellipse 90% 60% at 75% 8%, rgba(83, 104, 225, 0.22) 0%, transparent 60%),
     radial-gradient(ellipse 55% 40% at 8% 92%, rgba(80, 78, 190, 0.14) 0%, transparent 55%);
-  background-attachment: fixed;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
