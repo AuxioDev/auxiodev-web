@@ -106,8 +106,8 @@ export type ContactInfo = {
 
 export const contactInfo: ContactInfo[] = [
   { type: 'address', label: 'Address', value: 'Baku, Azerbaijan' },
-  { type: 'email', label: 'Email', value: 'hello@auxiodev.com' },
-  { type: 'phone', label: 'Phone', value: '+994 55 000 00 00' },
+  { type: 'email', label: 'Email', value: 'info@auxiodev.com' },
+  { type: 'phone', label: 'Phone', value: '+994 10 365 99 23' },
 ]
 
 export const socialLinks = [

@@ -17,6 +17,8 @@ export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
 
   const validate = (): boolean => {
     const next: FormErrors = {}
@@ -28,10 +30,24 @@ export function Contact() {
     return Object.keys(next).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) return
-    setSubmitted(true)
+    setSending(true)
+    setServerError(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Failed to send')
+      setSubmitted(true)
+    } catch {
+      setServerError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const inputClass =
@@ -138,11 +154,15 @@ export function Contact() {
                     )}
                   </div>
 
+                  {serverError && (
+                    <p className="text-xs text-red-400">{serverError}</p>
+                  )}
                   <button
                     type="submit"
-                    className="w-full bg-bright text-bg font-semibold px-6 py-3 rounded-sm hover:bg-white transition-colors text-sm mt-2"
+                    disabled={sending}
+                    className="w-full bg-bright text-bg font-semibold px-6 py-3 rounded-sm hover:bg-white transition-colors text-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send message
+                    {sending ? 'Sending…' : 'Send message'}
                   </button>
                 </motion.form>
               )}
