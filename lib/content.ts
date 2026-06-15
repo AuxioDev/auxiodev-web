@@ -1,7 +1,6 @@
 export const brand = {
   name: 'Auxiodev',
   tagline: 'We build intelligent digital products\nfor modern businesses.',
-  year: 2024,
 }
 
 export const navLinks = [
@@ -65,7 +64,6 @@ export type Stat = {
 export const aboutStats: Stat[] = [
   { value: 48, label: 'Projects delivered' },
   { value: 32, label: 'Happy clients' },
-  { value: 5, label: 'Years active', suffix: '+' },
   { value: 12, label: 'Team members' },
 ]
 
@@ -85,6 +83,7 @@ export const projects: Project[] = [
       'Multilingual platform for Baku\'s Italian language school — AZ/EN/IT, dark mode, static export, full-text search, and CEFR A1–C2 course structure.',
     iframeSrc: 'https://litad.az',
     href: 'https://litad.az',
+    tags: ['Next.js', 'Multilingual', 'Education'],
   },
   {
     title: 'Detalgo',
@@ -92,6 +91,7 @@ export const projects: Project[] = [
       'E-commerce platform for automotive spare parts — product catalog, search, and ordering experience built for Azerbaijani market.',
     iframeSrc: 'https://detalgo.az',
     href: 'https://detalgo.az',
+    tags: ['E-commerce', 'React', 'Automotive'],
   },
 ]
 

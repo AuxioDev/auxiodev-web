@@ -1,7 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import { brand } from '@/lib/content'
 import { AnimateIn } from '@/components/ui/AnimateIn'
 
 const containerVariants = {
@@ -65,12 +64,6 @@ export function Hero() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto w-full">
-        <AnimateIn delay={0} className="mb-6">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-muted">
-            Innovating since {brand.year}
-          </p>
-        </AnimateIn>
-
         <motion.h1
           variants={containerVariants}
           initial="hidden"

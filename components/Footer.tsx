@@ -63,7 +63,6 @@ export function Footer() {
             <p className="text-xs text-white/25">
               &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
             </p>
-            <p className="text-xs text-white/25">Building since {brand.year}</p>
           </div>
         </AnimateIn>
       </div>
