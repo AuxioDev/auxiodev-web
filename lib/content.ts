@@ -85,7 +85,13 @@ export const projects: Project[] = [
       'Multilingual platform for Baku\'s Italian language school — AZ/EN/IT, dark mode, static export, full-text search, and CEFR A1–C2 course structure.',
     iframeSrc: 'https://litad.az',
     href: 'https://litad.az',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    title: 'Detalgo',
+    description:
+      'E-commerce platform for automotive spare parts — product catalog, search, and ordering experience built for Azerbaijani market.',
+    iframeSrc: 'https://detalgo.az',
+    href: 'https://detalgo.az',
   },
 ]
 
